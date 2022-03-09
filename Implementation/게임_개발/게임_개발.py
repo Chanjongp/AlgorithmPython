@@ -25,7 +25,6 @@ while True:
 
     # 왼쪽 한칸
     nx, ny = (x + dx[s]), (y + dy[s])
-    print(nx, ny)
     if (nx < 0 or nx > n) or (ny < 0 or ny > m):
         count += 1
     # 2 - 1. 왼쪽 안가봄
