@@ -19,8 +19,8 @@ def dfs(x, y):
         dfs(x + 1, y)
         dfs(x, y - 1)
         dfs(x, y + 1)
-        print(x, y)
         return True
+
     return False
 
 
