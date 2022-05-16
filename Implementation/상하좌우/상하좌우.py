@@ -1,25 +1,30 @@
 n = int(input())
-actions = map(str, input().split())
+moves = list(map(str, input().split()))
 
-result = [1, 1]
+data = []
+for i in range(1, n + 1):
+    for j in range(1, n + 1):
+        data.append([i, j])
 
-action_type = {"L": (0, -1), "R": (0, 1), "U": (-1, 0), "D": (1, 0)}
+# 동 북 서 남
+dx = [0, -1, 0, 1]
+dy = [1, 0, -1, 0]
 
-for action in actions:
-    is_ignored = False
-    # X축 예외처리
-    if (result[1] == 1 and action == "L") or (result[1] == n and action == "R"):
-        is_ignored = True
-    # Y축 예외처리
-    elif (result[0] == 1 and action == "U") or (result[0] == n and action == "D"):
-        is_ignored = True
 
-    # N x N을 벗어낫을 경우 무시
-    if is_ignored:
-        continue
+x, y = 1, 1
 
-    action_point = action_type[action]
-    result[0] += action_point[0]
-    result[1] += action_point[1]
+for move in moves:
+    if move == "L" and y != 1:
+        x += dx[2]
+        y += dy[2]
+    elif move == "R" and y != n:
+        x += dx[0]
+        y += dy[0]
+    elif move == "U" and x != 1:
+        x += dx[1]
+        y += dy[1]
+    elif move == "D" and x != n:
+        x += dx[3]
+        y += dy[3]
 
-    print(result)
+print(x, y)
