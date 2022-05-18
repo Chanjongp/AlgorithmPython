@@ -2,9 +2,9 @@ n = int(input())
 
 data = [list((map(int, input().split()))) for _ in range(n)]
 
-# 시작하는 회의시간 끝나는 시간을 기준으로 오름차순 정렬
-# 이 때, 끝나는 시간이 같으면 시작시간을 내림차순으로 재정렬
-data.sort(key=lambda x: (x[1], -x[0]))
+# 시작하는 회의시간 오름차순 정렬
+# 같은 경우일 경우
+data.sort(key=lambda x: (x[1], x[0]))
 
 result = 1
 last_number = data[0][1]
