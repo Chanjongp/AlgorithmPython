@@ -9,6 +9,7 @@ dx = [1, 0, -1, 0]
 dy = [0, 1, 0, -1]
 
 
+data[n // 2][n // 2] = 1
 x = 1
 y = 1
 
@@ -50,15 +51,15 @@ for i in range((n ** 2), 1, -1):
     else:
         turn_count += 1
 
-
 data[x][y] = 1
-
 
 for i in range(1, n + 1):
     for j in range(1, n + 1):
         print(data[i][j], end=" ")
     print()
 
+if not find_arr:
+    find_arr.append(x)
+    find_arr.append(y)
 
 print(*find_arr)
-# [print(a, end=" ") for a in find_arr]
