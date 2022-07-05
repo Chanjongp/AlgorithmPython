@@ -1,5 +1,4 @@
 def solution(citations):
-    n = len(citations)
     citations.sort()
 
     more_h, less_h = [], []
