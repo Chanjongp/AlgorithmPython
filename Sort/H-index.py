@@ -13,7 +13,7 @@ def solution(citations):
         # 인용횟수 h보다 크고 작은지의 여부 체크
         [more_h.append(j) if j >= h else less_h.append(j) for j in citations]
         # 최댓값 비교
-        # h:1
+        # h:1   
         # 4 1
         if len(more_h) >= h and len(less_h) <= h:
             if h >= answer:
