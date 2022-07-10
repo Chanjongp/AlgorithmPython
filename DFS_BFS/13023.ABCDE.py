@@ -46,5 +46,3 @@ for i in range(m):
 
 for i in range(n):
     dfs(graph, i, visited, 0)
-
-print(0)
