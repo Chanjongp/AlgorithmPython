@@ -29,3 +29,42 @@ def solution(n, computers):
         except ValueError:
             break
     return answer
+
+
+""" 한달 후에 푼거"""
+
+from collections import deque
+
+
+def bfs(graph, visited, start):
+    queue = deque([start])
+    visited[start] = True
+
+    while queue:
+        v = queue.popleft()
+        for i in graph[v]:
+            if not visited[i]:
+                queue.append(i)
+                visited[i] = True
+    return None
+
+
+def solution(n, computers):
+    answer = 0
+    graph = [[] * n for _ in range(n)]
+    visited = [False] * n
+
+    # computers -> graph 치환
+    for i, computer in enumerate(computers):
+        [
+            graph[i].append(j)
+            for j, is_connect in enumerate(computer)
+            if is_connect and j != i
+        ]
+
+    for k in range(n):
+        if not visited[k]:
+            bfs(graph, visited, k)
+            answer += 1
+
+    return answer
