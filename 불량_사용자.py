@@ -61,3 +61,8 @@ print(
         ["fr*d*", "*rodo", "******", "******"],
     )
 )
+
+a = {"a": "1"}
+
+if (b := a.get("a")) is None:
+    print(1)
