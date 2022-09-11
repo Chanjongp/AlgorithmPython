@@ -20,7 +20,6 @@ def solution(progresses, speeds):
     ]
 
     latest, cnt = complete_day[0], 1
-    size = len(complete_day) - 2
     for now in complete_day[1:]:
         # 전에있는 태스크가 크다면 해당 일자에 테스크 완수
         if latest >= now:
