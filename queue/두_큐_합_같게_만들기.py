@@ -1,15 +1,10 @@
-# https://school.programmers.co.kr/learn/courses/30/lessons/118667
-
 """
-시간복잡도 계산 요인 
-1. sum()을 반복문에 계속 넣어서 시간초과 발생
-2. queue1, queue2를 deque로 바꾸지 않아서 시간초과 발생
-
-
-
+q1: 원소 추출
+q2: 집어넣음
 
 queue1 = [3, 2, 7, 2]
 queue2 = [4, 6, 5, 1]
+
 => 4, 6, 5 
 
 queue1 = [1, 2, 1, 2]
@@ -26,13 +21,14 @@ def solution(queue1, queue2):
 
     answer = 0
 
+    middle = (sum1 + sum2) / 2
+
     for _ in range(3 * len(queue1)):
         # 중간값 구함 (10)
         if sum1 == sum2:
             return answer
         elif sum1 == 0 or sum2 == 0:
             return -1
-        middle = (sum1 + sum2) / 2
 
         # +4, -4
         diff_queue1 = middle - sum1

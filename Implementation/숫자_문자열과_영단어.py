@@ -53,3 +53,8 @@ def solution(s):
                     j += 1
 
     return int(answer)
+
+
+a = [1, 2, 3]
+
+a.ch

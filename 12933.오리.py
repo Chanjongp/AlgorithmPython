@@ -17,8 +17,9 @@ __q__u__a____ck
 """
 
 
-import sys
+import re
 
-data = sys.stdin.readline
+a = "img12.png"
 
-for 
+for i in a:
+    print(re.split("^[0-9]", i))
