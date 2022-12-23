@@ -50,3 +50,50 @@ def solution(queue1, queue2):
         answer += 1
 
     return -1
+
+
+"""
+2022.12.24 재풀이
+
+"""
+from collections import deque
+    
+MAX_LENGTH = 300000
+
+def move(pop_q, insert_q):
+    val = pop_q.popleft()
+    insert_q.append(val)
+    return val
+    
+
+def solution(queue1, queue2):
+    result = 0
+    q1, q2 = deque(queue1), deque(queue2)
+
+    sum_q1, sum_q2 = sum(q1), sum(q2)
+    # 시작부터 같을 경우, 0 리턴
+    if sum_q1 == sum_q2:
+        return 0
+
+    while result != MAX_LENGTH:
+        # 1. 큰 큐 선택
+        # 2. 이동
+        if sum_q1 > sum_q2:
+            pop_val = move(q1, q2)
+            sum_q1 -= pop_val
+            sum_q2 += pop_val
+        else:
+            pop_val = move(q2, q1)
+            sum_q2 -= pop_val
+            sum_q1 += pop_val
+        
+        result += 1
+        # 3. 큐 값이 같아졌는지 체크
+        if (sum_q1 == sum_q2):
+            break
+        
+    if result == MAX_LENGTH:
+        return -1
+
+    return result
+    
